@@ -1,0 +1,70 @@
+{
+  "projects": {
+    "dev": "creditoexpress-dev",
+    "portocred-dev": "creditoexpress-dev",
+    "bancosemear-dev": "creditoexpress-dev",
+    "staging": "creditoexpress-staging-263523",
+    "portocred-staging": "creditoexpress-staging-263523",
+    "bancosemear-staging": "creditoexpress-staging-263523",
+    "prod": "creditoexpress",
+    "portocred-prod": "creditoexpress",
+    "bancosemear-prod": "creditoexpress",
+    "e2e": "creditoexpress-e2e-263717",
+    "portocred-e2e": "creditoexpress-e2e-263717",
+    "bancosemear-e2e": "creditoexpress-e2e-263717"
+  },
+  "targets": {
+    "creditoexpress-dev": {
+      "hosting": {
+        "dev": [
+          "creditoexpress-dev"
+        ],
+        "portocred-dev": [
+          "creditoexpress-portocred-dev"
+        ],
+        "bancosemear-dev": [
+          "creditoexpress-bancosemear-dev"
+        ]
+      }
+    },
+    "creditoexpress-staging-263523": {
+      "hosting": {
+        "staging": [
+          "creditoexpress-staging-263523"
+        ],
+        "portocred-staging": [
+          "ce-portocred-staging"
+        ],
+        "bancosemear-staging": [
+          "ce-bancosemear-staging"
+        ]
+      }
+    },
+    "creditoexpress": {
+      "hosting": {
+        "prod": [
+          "creditoexpress"
+        ],
+        "portocred-prod": [
+          "creditoexpress-portocred"
+        ],
+        "bancosemear-prod": [
+          "creditoexpress-bancosemear"
+        ]
+      }
+    },
+    "creditoexpress-e2e-263717": {
+      "hosting": {
+        "e2e": [
+          "creditoexpress-e2e-263717"
+        ],
+        "portocred-e2e": [
+          "creditoexpress-portocred-e2e"
+        ],
+        "bancosemear-e2e": [
+          "creditoexpress-bancosemear-e2e"
+        ]
+      }
+    }
+  }
+}

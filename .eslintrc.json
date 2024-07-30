@@ -1,0 +1,98 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "prettier",
+    "eslint-plugin-import-helpers",
+    "react-hooks"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-unused-expressions": 0,
+    "react/prop-types": 0,
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    "react/no-unescaped-entities": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always", // new line between groups
+        "groups": [
+          "/^react/",
+          "module",
+          "/^@material-ui/",
+          "/^@credito-express/ce-components/",
+          "/^@/",
+          "/~/hooks/",
+          "/~/routes/",
+          "/~/common/",
+          "/~/resources/",
+          "/~/providers/",
+          "/~/pages/",
+          "/~/layouts/",
+          "/~/containers/",
+          "/~/components/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "no-use-before-define": "off",
+    "consistent-return": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "no-case-declarations": "off",
+    "no-throw-literal": "off",
+
+    "react/no-array-index-key": "off",
+    "no-prototype-builtins": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".json"]
+      },
+      "alias": {
+        "map": [
+          ["~/app", "./src"],
+          ["~/pages", "./src/pages/"],
+          ["~/containers", "./src/containers/"],
+          ["~/components", "./src/components/"],
+          ["~/providers", "./src/providers/"],
+          ["~/commons", "./src/commons/"],
+          ["~/resources", "./src/common/resources/"],
+          ["~/hooks", "./src/hooks/"],
+          ["~/routes", "./src/routes/"],
+          ["~/hooks", "./src/hooks/"],
+          ["~/layouts", "./src/layouts/"]
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".json"]
+      }
+    }
+  }
+}

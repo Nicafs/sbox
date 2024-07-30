@@ -1,0 +1,40 @@
+{
+  "organizacao": {
+    "id": "5ec2d40346aef58a2c157bd7",
+    "nome": "Crédito Express",
+    "cnpj": "30894191000143",
+    "inscricaoEstadual": "0032287930035",
+    "codigoAcesso": "ce-p2p",
+    "artigoDefinido": "a",
+    "corIcone": "VERDE",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#00F769\", \"main\": \"#00D867\", \"dark\": \"#009C4E\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#FF9956\", \"main\": \"#FA7934\", \"dark\": \"#D09229\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#E57373\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+    "temaPadrao": true,
+    "endereco": {
+      "cep": "38411145",
+      "bairro": "GAVEA",
+      "logradouro": "AVENIDA PAULO GRACINDO",
+      "cidade": "UBERLANDIA",
+      "estado": "MG",
+      "numero": "15",
+      "complemento": "COND UBERLANDIA SHOPPING LOJA 07 - A SALA 01",
+      "cepRef": "5e31e02dca4cdc2ea3d0a0f7",
+      "cidadeRef": "5de120c4756d3d05cb42f985",
+      "camposAdicionais": {},
+      "dataCriacao": "2020-05-18 18:29:23"
+    },
+    "camposPersonalizados": {},
+    "emailsDeContato": {},
+    "tipoFluxoEcp": "P2P",
+    "logoUnica": true,
+    "textoAssinaturaAudio": "",
+    "dataCriacao": "2020-05-18 18:29:23",
+    "dataAlteracao": "2020-05-18 18:29:23",
+    "textoOrganizacao": {
+      "titulo": "Gente\nImpulsionando\nGente",
+      "subtitulo1": "Simule e compare!",
+      "subtitulo2": "Somos uma plataforma que conecta\ngente que acredita em gente",
+      "mobile": "Gente Impulsionando Gente"
+    }
+  }
+}

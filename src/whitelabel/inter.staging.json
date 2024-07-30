@@ -1,0 +1,40 @@
+{
+  "organizacao": {
+    "id": "60d0c93873995ea10dd5f2d4",
+    "nome": "Banco Inter",
+    "cnpj": "73271717000141",
+    "inscricaoEstadual": "73.271.717/0001-41",
+    "codigoAcesso": "banco-inter",
+    "artigoDefinido": "a",
+    "corIcone": "AMARELO",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#ff7a00\", \"main\": \"#f79336\", \"dark\": \"#cd6a0e\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#6a6c72\", \"main\": \"#0d0d0d\", \"dark\": \"#686764\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#E57373\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+    "temaPadrao": false,
+    "endereco": {
+      "cep": "38409650",
+      "bairro": "LOTEAMENTO CENTRO EMPRESARIAL LESTE I",
+      "logradouro": "A",
+      "cidade": "Uberlândia",
+      "estado": "MG",
+      "numero": "123",
+      "complemento": "",
+      "cepRef": "5e31e02cca4cdc2ea3d0922f",
+      "cidadeRef": "5de120c4756d3d05cb42f985",
+      "camposAdicionais": {},
+      "dataCriacao": "2020-09-08 13:34:44"
+    },
+    "camposPersonalizados": {},
+    "emailsDeContato": {},
+    "tipoFluxoEcp": "P2P",
+    "logoUnica": false,
+    "textoAssinaturaAudio": "",
+    "dataCriacao": "2021-02-05 19:57:24",
+    "dataAlteracao": "2021-02-05 19:57:24",
+    "textoOrganizacao": {
+      "titulo": "Gente\nImpulsionando\nGente",
+      "subtitulo1": "Simule e compare!",
+      "subtitulo2": "Somos uma plataforma que conecta\ngente que acredita em gente",
+      "mobile": "Gente Impulsionando Gente"
+    }
+  }
+}

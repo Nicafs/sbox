@@ -1,0 +1,23 @@
+{
+  "organizacao": {
+     "id":"61004586a3db38734523e538",
+     "nome":"Banco Safra S/A",
+     "cnpj":"58160789000128",
+     "inscricaoEstadual":"58.160.789/0001-28",
+     "codigoAcesso":"safra",
+     "artigoDefinido":"a",
+     "corIcone":"AZUL",
+     "logo":"logo.png",
+     "tema":"{\"primary\": {\"light\": \"#1e2044\", \"main\": \"#4b7aa8\", \"dark\": \"#00003c\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#d0b56d\", \"main\": \"#c0964d\", \"dark\": \"#D09229\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#E57373\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+     "temaPadrao":false,
+     "tipoFluxoEcp":"P2P",
+     "logoUnica":false,
+     "whatsappHabilitado":false,
+     "textoOrganizacao": {
+        "titulo": "Simule o seu\nConsignado Privado\ncom o Banco Safra",
+        "subtitulo1": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+        "subtitulo2": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+        "mobile": "Simule o seu Consignado\nPrivado com o Banco Safra"
+     }
+  }
+}

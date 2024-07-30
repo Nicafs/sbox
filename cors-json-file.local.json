@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["*"],
+    "responseHeader": ["Access-Control-Allow-Origin", "Content-Type"],
+    "method": ["GET", "OPTIONS", "HEAD", "DELETE"],
+    "maxAgeSeconds": 3600
+  }
+]

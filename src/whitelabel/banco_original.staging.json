@@ -1,0 +1,22 @@
+{
+  "organizacao": {
+    "id": "60e30801b038a8323cc9abdf",
+    "nome": "Banco Original",
+    "cnpj": "92894922000108",
+    "inscricaoEstadual": "92.894.922/0001-08",
+    "codigoAcesso": "banco-original",
+    "artigoDefinido": "o",
+    "corIcone": "VERDE",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#1b1b1b\", \"main\": \"#4a4b4a\", \"dark\": \"#323432\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#1b935f\", \"main\": \"#00a857\", \"dark\": \"#69e490\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#E57373\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+    "temaPadrao": false,
+    "tipoFluxoEcp": "P2P",
+    "logoUnica": false,
+    "textoOrganizacao": {
+      "titulo": "Simule o seu\nConsignado Privado\ncom o Banco Original",
+      "subtitulo1": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "subtitulo2": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "mobile": "Simule o seu Consignado\nPrivado com o Banco Original"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+image: gleniosp/docker-node-python:latest
+
+stages:
+  - dependencies
+  - code_quality
+  - test
+  - deploy_e2e
+  - e2e_test
+  - versioning
+  - build
+  - deploy_dev
+  - deploy_staging
+  - deploy_prod
+
+cache:
+  key: $CI_PROJECT_ID
+  paths:
+    - node_modules/
+    - .cache/pip
+    - venv/
+
+install_dependencies:
+  stage: dependencies
+  only:
+    - dev
+    - /^sprint-\d+/
+    - merge_requests
+  script:
+    - echo "Adding bit.dev to npm registry"
+    - echo "always-auth=true" >> ~/.npmrc
+    - echo "@bit:registry=https://node.bit.dev" >> ~/.npmrc
+    - echo "//node.bit.dev/:_authToken={$BITDEV_TOKEN}" >> ~/.npmrc
+    - echo "Completed adding bit.dev to npm registry"
+    - echo "Installing dependencies"
+    - yarn
+    - python3 -V
+    - python3 -m venv venv
+    - source venv/bin/activate
+    - pip install -r requirements-ci.txt
+
+eslint:
+  stage: code_quality
+  only:
+    - dev
+    - /^sprint-\d+/
+    - merge_requests
+  allow_failure: true
+  variables:
+    GIT_STRATEGY: fetch
+  cache:
+    key: $CI_PROJECT_ID
+    paths:
+      - node_modules/
+    policy: pull
+  script:
+    - yarn global add eslint
+    - yarn run lint
+
+unit_test:
+  stage: test
+  only:
+    - dev
+    - /^sprint-\d+/
+    - merge_requests
+  variables:
+    GIT_STRATEGY: fetch
+  cache:
+    key: $CI_PROJECT_ID
+    paths:
+      - node_modules/
+    policy: pull
+  before_script:
+    - CI=true
+    - echo "Unit testing the app"
+  script:
+    - yarn test
+
+generate_tag:
+  stage: versioning
+  only:
+    - merge_requests
+  cache:
+    key: $CI_PROJECT_ID
+    paths:
+      - node_modules/
+      - .cache/pip
+      - venv/
+      - app_version
+  variables:
+    GIT_STRATEGY: fetch
+  before_script:
+    - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    - source venv/bin/activate
+  script:
+    - echo "Retrieved merge labels are $CI_MERGE_REQUEST_LABELS"
+    - echo "Generating tag version number for app"
+    - python -u ./ci/scripts/gen_semver.py $CI_MERGE_REQUEST_LABELS > app_version
+    - cat app_version
+    - '[ -f ./app_version ] && APP_VERSION=$(cat ./app_version)'
+    - echo "The app version number $APP_VERSION was generated"
+
+.deploy:
+  cache:
+    key: $CI_PROJECT_ID
+    paths:
+      - node_modules/
+      - .cache/pip
+      - venv/
+      - app_version
+    policy: pull
+  variables:
+    GIT_STRATEGY: fetch
+    GCP_SRV_SA_KEY_PATH: /tmp/srv-keyfile-$ENV.json
+  before_script:
+    - CI=false
+    - eval GCP_SRV_SA_KEY_JSON=\$CE_REACT_SA_KEY_${ENV_UPPER}
+    - echo "$GCP_SRV_SA_KEY_JSON" > $GCP_SRV_SA_KEY_PATH
+    - yarn global add firebase-tools
+    - echo "Building and deploying app to $ENV and $GCP_PROJECT_ID"
+    - source build-ci.sh $ENV $PROJECT_SECRET_NAME $GCP_SRV_SA_KEY_PATH
+    - >
+      firebase deploy -P $FIREBASE_PROJECT_ALIAS
+      --only hosting:$FIREBASE_PROJECT_ALIAS,firestore:rules,firestore:indexes,storage,database
+      -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
+    - rm $GCP_SRV_SA_KEY_PATH
+    - rm .env
+
+include:
+  - local: ci/ci_creditoexpress.yml
+  - local: ci/ci_portocred.yml
+  - local: ci/ci_banco_semear.yml

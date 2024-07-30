@@ -1,0 +1,42 @@
+version: '3.2'
+services:
+  ce-sso:
+    image: gcr.io/creditoexpress-e2e-263717/ce-sso:latest
+    network_mode: host
+    depends_on:
+      - mongo
+  ce-api:
+    image: gcr.io/creditoexpress-e2e-263717/ce-api:latest
+    network_mode: host
+    depends_on:
+      - mongo
+      - ce-sso
+  ce-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - WAIT_HOSTS=localhost:27117
+    network_mode: host
+    depends_on:
+      - mongo
+      - ce-api
+  cypress:
+    build:
+      context: .
+      dockerfile: cypress/Dockerfile.cypress
+    shm_size: '512m'
+    env_file:
+      - .env.e2e
+    environment:
+      - CYPRESS_baseUrl=http://localhost:80
+      - CYPRESS_mongoUri=mongodb://localhost:27117/ce-db-e2e
+      - GCP_CI_SA_KEY=${GCP_CI_SA_KEY_E2E}
+    network_mode: host
+    depends_on:
+      - mongo
+      - ce-ui
+  mongo:
+    image: mongo:4.0.4
+    command: mongod --port 27117
+    network_mode: host

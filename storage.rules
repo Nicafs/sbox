@@ -1,0 +1,51 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+  // regras bucket de pessoas
+  	match /pessoa/{userId}/avatar.png  {
+      allow read: if request.auth.token.backoffice == true;
+    }
+  	match /empresa/{allPaths=**}/avatar.png  {
+      allow read: if request.auth.token.backoffice == true;
+    }
+    match /pessoa/{pessoaId}/{allPaths=**} {
+      allow read: if request.auth.token.pessoa_id == pessoaId || request.auth.token.backoffice == true;
+    }
+  // regras bucket de bancos
+    match /bancos/{allPaths=**}  {
+      allow read: if request.auth != null;
+    }
+    match /bancos/{allPaths=**}  {
+      allow read: if request.auth.token.backoffice == true;
+    }
+  // regras bucket organizacao
+  	match /organizacao/{allPaths=**} {
+      match /logo.png {
+        allow read;
+      }
+      match /logo-monocromatica.png {
+        allow read;
+      }
+      match /brasao-colorido.png {
+        allow read;
+      }
+      match /brasao-monocromatico.png {
+        allow read;
+      }
+      match /favicon.png {
+        allow read;
+      }
+    }
+    match /organizacao/{allPaths=**}  {
+      allow read: if request.auth != null;
+    }
+    match /organizacao/{allPaths=**}  {
+      allow read: if request.auth.token.backoffice == true;
+    }
+
+  // app images
+  	match /app_images/{allPaths=**} {
+    	allow read;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "forbidden": "You don't have permission for this",
+  "badRequest": "Invalid request",
+  "internalServerError": "Internal error, plaese try again later",
+  "notFound": "Internal error, plaese try again later",
+  "VAL0002": "Fill in all fields",
+  "EMP0003": "Client already has a pending loan awaiting investor",
+  "CAD015": "Corporate email already registered in the base",
+  "CAD020": "Personal email already registered in the base"
+}

@@ -1,0 +1,992 @@
+{
+  "hosting": [
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com ; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "dev",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/docs/**",
+          "run": {
+            "serviceId": "ce-docs"
+          }
+        },
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; notifications *; push *; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; vibrate 'self'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "staging",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; notifications *; push *; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; vibrate 'self'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "prod",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "e2e",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "portocred-dev",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/docs/**",
+          "run": {
+            "serviceId": "ce-docs"
+          }
+        },
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "portocred-staging",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' https: 'unsafe-eval' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com bid.g.doubleclick.net https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com *.google.com.br www.google.com.br/ads/ga-audiences googleads.g.doubleclick.net stats.g.doubleclick.net usr.navdmp.com tag.navdmp.com cdn.navdmp.com www.googleadservices.com www.google.com.br/pagead use.typekit.net 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com bid.g.doubleclick.net 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; notifications *; push *; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; vibrate 'self'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "portocred-prod",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            },
+            {
+              "source": "service-worker.js",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store"
+                }
+              ]
+            },
+            {
+              "source": "index.html",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "target": "portocred-e2e",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "bancosemear-dev",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/docs/**",
+          "run": {
+            "serviceId": "ce-docs"
+          }
+        },
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com  *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "bancosemear-staging",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            },
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self' 'unsafe-inline' data: blob: wss: *.google.com *.googleapis.com *.hotjar.com https://api.bcb.gov.br *.hotjar.io *.firebaseio.com *.sentry.io websdk.nyc3.cdn.digitaloceanspaces.com/sdk.js *.nexflow.app www.googletagmanager.com www.google-analytics.com 'unsafe-eval' https://cdn-prod.securiti.ai/consent/cookie-consent-sdk.js https://cdn-prod.securiti.ai/consent/cookie_banner/01232350-75bf-4a8e-822c-ce0a190feaa3/f4a86ff0-695b-4a64-801a-12fb92d17fd3.json https://app.securiti.ai; frame-src https://chat.blip.ai/ *.nexflow.app *.hotjar.com; style-src 'self' 'unsafe-inline' https://cdn-prod.securiti.ai/consent/cookie-consent.css"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Feature-Policy",
+              "value": "geolocation 'self'; midi 'none'; notifications *; push *; sync-xhr *; microphone 'self'; camera 'self'; magnetometer 'none'; gyroscope 'none'; speaker 'self'; vibrate 'self'; fullscreen 'self'; payment 'none'"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "service-worker.js",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        },
+        {
+          "source": "index.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            }
+          ]
+        }
+      ],
+      "target": "bancosemear-prod",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/atualizarDadosPessoa",
+          "function": "atualizar_dados_pessoa"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=0, no-cache, no-store, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=604800"
+            },
+            {
+              "source": "service-worker.js",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store"
+                }
+              ]
+            },
+            {
+              "source": "index.html",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "target": "bancosemear-e2e",
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/api/auth",
+          "function": "auth-api"
+        },
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ce-api"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "database": {
+    "rules": "database-rules.json"
+  }
+}

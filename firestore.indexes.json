@@ -1,0 +1,21 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "investimento_historico_visualizacao",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "idNegociacao", "order": "ASCENDING" },
+        { "fieldPath": "t", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "investimento_historico_visualizacao",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "idNegociacao", "order": "ASCENDING" },
+        { "fieldPath": "idPessoa", "order": "ASCENDING" },
+        { "fieldPath": "t", "order": "ASCENDING" }
+      ]
+    }
+  ]
+}

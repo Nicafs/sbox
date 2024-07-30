@@ -1,0 +1,45 @@
+{
+  "organizacao": {
+    "id": "5fdcee53b248faf196a4af3a",
+    "nome": "Banco Semear S.A.",
+    "cnpj": "00795423000145",
+    "inscricaoEstadual": "00.795.423/0001-45",
+    "codigoAcesso": "bancosemear",
+    "artigoDefinido": "o",
+    "corIcone": "AZUL_TURQUESA",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#246db5\", \"main\": \"#00c3e3\", \"dark\": \"#193b68\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#ffd515\", \"main\": \"#3db26f\", \"dark\": \"#506a7c\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#ee7aaa\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+    "temaPadrao": false,
+    "endereco": {
+      "cep": "30130008",
+      "bairro": "SERRA",
+      "logradouro": "AVENIDA AFONSO PENA",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "numero": "3577",
+      "cep_ref": {
+        "$oid": "5e31e02aca4cdc2ea3cf2fc0"
+      },
+      "cidade_ref": {
+        "$oid": "5de120c4756d3d05cb42f68e"
+      },
+      "campos_adicionais": {},
+      "data_criacao": {
+        "$date": "2021-02-05T20:05:28.819Z"
+      }
+    },
+    "camposPersonalizados": {},
+    "emailsDeContato": {},
+    "tipoFluxoEp": "BANCO_SEMEAR",
+    "logoUnica": false,
+    "textoAssinaturaAudio": "",
+    "dataCriacao": "2021-02-05 19:57:24",
+    "dataAlteracao": "2021-02-05 19:57:24",
+    "textoOrganizacao": {
+      "titulo": "Simule o seu\nEmpréstimo\nPessoal com o\nBanco Semear",
+      "subtitulo1": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "subtitulo2": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "mobile": "Simule o seu Empréstimo\nPessoal com o Banco Semear"
+    }
+  }
+}

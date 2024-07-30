@@ -1,0 +1,40 @@
+{
+  "organizacao": {
+    "id": "5f57887418ad5e4a80bdbeed",
+    "nome": "Crédito Express",
+    "cnpj": "97740392000167",
+    "inscricaoEstadual": "3232234223223",
+    "codigoAcesso": "ce-p2p",
+    "artigoDefinido": "a",
+    "corIcone": "VERDE",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#00F769\", \"main\": \"#00D867\", \"dark\": \"#009C4E\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#FF9956\", \"main\": \"#FA7934\", \"dark\": \"#D09229\", \"contrastText\": \"#ffffff\"}, \"error\": {\"light\": \"#E57373\", \"main\": \"#F44336\", \"dark\": \"#D32F2F\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#fafafa\"}}",
+    "temaPadrao": false,
+    "endereco": {
+      "cep": "38408272",
+      "bairro": "Segismundo Pereira",
+      "logradouro": "Rua Joao Angelo Schiavinato",
+      "cidade": "Uberlândia",
+      "estado": "MG",
+      "numero": "12112",
+      "complemento": "",
+      "cepRef": "5e31e02dca4cdc2ea3d09b43",
+      "cidadeRef": "5de120c4756d3d05cb42f985",
+      "camposAdicionais": {},
+      "dataCriacao": "2020-09-08 13:34:44"
+    },
+    "camposPersonalizados": {},
+    "emailsDeContato": {},
+    "tipoFluxoEcp": "P2P",
+    "logoUnica": false,
+    "textoAssinaturaAudio": "",
+    "dataCriacao": "2021-02-05 19:57:24",
+    "dataAlteracao": "2021-02-05 19:57:24",
+    "textoOrganizacao": {
+      "titulo": "Gente\nImpulsionando\nGente",
+      "subtitulo1": "Simule e compare!",
+      "subtitulo2": "Somos uma plataforma que conecta\ngente que acredita em gente",
+      "mobile": "Gente Impulsionando Gente"
+    }
+  }
+}

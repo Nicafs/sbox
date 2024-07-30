@@ -1,0 +1,28 @@
+{
+  "organizacao": {
+    "id": "5fc4f4fcadef3ffd2072b51c",
+    "nome": "Portocred Financeira",
+    "cnpj": "93678614000108",
+    "inscricaoEstadual": "658.051.740.604",
+    "codigoAcesso": "portocred",
+    "artigoDefinido": "a",
+    "corIcone": "AZUL",
+    "logo": "logo.png",
+    "tema": "{\"primary\": {\"light\": \"#7283b5\", \"main\": \"#002d72\", \"dark\": \"#243a75\", \"contrastText\": \"#ffffff\"}, \"secondary\": {\"light\": \"#c1e592\", \"main\": \"#84bd00\", \"dark\": \"#6cc744\", \"contrastText\": \"#fcfcfc\"}, \"error\": {\"light\": \"#c12f2f\", \"main\": \"#f90606\", \"dark\": \"#ba1717\", \"contrastText\": \"#ffffff\"}, \"background\": {\"paper\": \"#ffffff\", \"default\": \"#f5f5f5\"}}",
+    "temaPadrao": false,
+    "endereco": {},
+    "camposPersonalizados": {},
+    "emailsDeContato": {},
+    "tipoFluxoEcp": "PORTOCRED",
+    "logoUnica": false,
+    "textoAssinaturaAudio": "",
+    "dataCriacao": "2020-03-12 12:15:43",
+    "dataAlteracao": "2020-11-26 16:07:05",
+    "textoOrganizacao": {
+      "titulo": "Simule o seu\nConsignado Privado\ncom a Portocred",
+      "subtitulo1": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "subtitulo2": "Empréstimos com taxas diferenciadas\ne sem burocracia.",
+      "mobile": "Simule o seu Consignado\nPrivado com a Portocred"
+    }
+  }
+}

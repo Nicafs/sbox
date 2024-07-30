@@ -1,0 +1,72 @@
+# deploy_e2e_portocred:
+#   extends: .deploy
+#   stage: deploy_e2e
+#   only:
+#     - /^sprint-\d+/
+#     - merge_requests
+#   environment:
+#     name: e2e
+#   variables:
+#     ENV: e2e
+#     ENV_UPPER: E2E
+#     FIREBASE_TOKEN: $FIREBASE_TOKEN_E2E
+#     FIREBASE_PROJECT_ALIAS: portocred-e2e
+#     GCP_PROJECT_ID: $GCP_PROJECT_ID_E2E
+#     PROJECT_SECRET_NAME: CE_REACT_CORE_PORTOCRED
+#   script:
+#     - echo "App was deployed to $ENV"
+
+deploy_dev_portocred:
+  stage: deploy_dev
+  extends: .deploy
+  only:
+    - dev
+  environment:
+    name: dev
+  variables:
+    ENV: dev
+    ENV_UPPER: DEV
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_DEV
+    FIREBASE_PROJECT_ALIAS: portocred-dev
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_DEV
+    PROJECT_SECRET_NAME: CE_REACT_CORE_PORTOCRED
+  script:
+    - echo "App was deployed to $ENV"
+
+deploy_staging_portocred:
+  stage: deploy_staging
+  extends: .deploy
+  only:
+    - master
+  environment:
+    name: staging
+  variables:
+    ENV: staging
+    ENV_UPPER: STAGING
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_STAGING
+    FIREBASE_PROJECT_ALIAS: portocred-staging
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_STAGING
+    PROJECT_SECRET_NAME: CE_REACT_CORE_PORTOCRED
+  script:
+    - echo "App was deployed to $ENV"
+
+deploy_prod_portocred:
+  stage: deploy_prod
+  extends: .deploy
+  only:
+    # - /v[0-9|\.]+/
+    - master
+  # except:
+  #   - branches
+  when: manual
+  allow_failure: false
+  environment:
+    name: prod
+  variables:
+    ENV: prod
+    ENV_UPPER: PROD
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_PROD
+    FIREBASE_PROJECT_ALIAS: portocred-prod
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_PROD
+    PROJECT_SECRET_NAME: CE_REACT_CORE_PORTOCRED
+  script: echo "App was deployed to $ENV"

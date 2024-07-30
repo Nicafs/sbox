@@ -1,0 +1,98 @@
+deploy_e2e_ce:
+  extends: .deploy
+  stage: deploy_e2e
+  only:
+    - /^sprint-\d+/
+    - merge_requests
+  environment:
+    name: e2e
+  variables:
+    ENV: e2e
+    ENV_UPPER: E2E
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_E2E
+    FIREBASE_PROJECT_ALIAS: e2e
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_E2E
+    PROJECT_SECRET_NAME: CE_REACT_CORE
+  script:
+    - echo "App was deployed to $ENV"
+
+# e2e_test:
+#   stage: e2e_test
+#   image: registry.gitlab.com/finestructure/pipeline-trigger:2.6.0
+#   only:
+#     - merge_requests
+#   allow_failure: true
+#   variables:
+#     GIT_STRATEGY: fetch
+#   cache: {}
+#   script:
+#     - >
+#       trigger -a "$GITLAB_PERSONAL_TOKEN" -p "$CYPRESS_TRIGGER_TOKEN"
+#       -t master -e TEST_FOLDER=cliente credito-express/ce-cypress
+
+deploy_dev_ce:
+  stage: deploy_dev
+  extends: .deploy
+  only:
+    - dev
+  environment:
+    name: dev
+  variables:
+    ENV: dev
+    ENV_UPPER: DEV
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_DEV
+    FIREBASE_PROJECT_ALIAS: dev
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_DEV
+    PROJECT_SECRET_NAME: CE_REACT_CORE
+  script:
+    - echo "App was deployed to $ENV"
+
+deploy_staging_ce:
+  stage: deploy_staging
+  extends: .deploy
+  only:
+    - master
+  environment:
+    name: staging
+  variables:
+    ENV: staging
+    ENV_UPPER: STAGING
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_STAGING
+    FIREBASE_PROJECT_ALIAS: staging
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_STAGING
+    PROJECT_SECRET_NAME: CE_REACT_CORE
+  script:
+    - echo "App was deployed to $ENV"
+    # - source venv/bin/activate
+    # - mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    # - ssh-keyscan gitlab.com >> ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
+    # - eval $(ssh-agent -s)
+    # - echo "$SSH_PRIVATE_KEY" | ssh-add -
+    # - cat app_version
+    # - '[ -f ./app_version ] && export APP_VERSION=$(cat ./app_version)'
+    # # - echo "The app version number $APP_VERSION was obtained"
+    # # - version='{ "version":"'${APP_VERSION:1}'"}'
+    # # - echo $version > public/version.json
+    # # - echo $version > src/assets/version.json
+    # - python -u ci/scripts/generate_tag.py $APP_VERSION
+
+deploy_prod_ce:
+  stage: deploy_prod
+  extends: .deploy
+  only:
+    # - /v[0-9|\.]+/
+    - master
+  # except:
+  #   - branches
+  when: manual
+  allow_failure: false
+  environment:
+    name: prod
+  variables:
+    ENV: prod
+    ENV_UPPER: PROD
+    FIREBASE_TOKEN: $FIREBASE_TOKEN_PROD
+    FIREBASE_PROJECT_ALIAS: prod
+    GCP_PROJECT_ID: $GCP_PROJECT_ID_PROD
+    PROJECT_SECRET_NAME: CE_REACT_CORE
+  script: echo "App was deployed to $ENV"

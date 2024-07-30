@@ -1,0 +1,7 @@
+cypress/*
+src/serviceWorker.js
+src/setupTests.js
+src/setupProxy.js
+/**/__tests__/*
+node_modules
+dist

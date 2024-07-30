@@ -1,0 +1,41 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+/.cert
+
+# misc
+.DS_Store
+.env*
+
+/Lib
+/Scripts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.docz
+
+.vscode
+.idea
+
+.firebase
+
+cypress/videos
+cypress/screenshots
+cypress/node_modules
+
+upload_env.py
+
+venv
+pyvenv.cfg
+*.log
+app_version

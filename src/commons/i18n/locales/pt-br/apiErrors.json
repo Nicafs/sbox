@@ -1,0 +1,10 @@
+{
+  "forbidden": "Você não possui acesso",
+  "badRequest": "Solicitação inválida",
+  "internalServerError": "Ocorreu um erro interno, tente novamente mais tarde",
+  "notFound": "Ocorreu um erro interno, tente novamente mais tarde",
+  "VAL0002": "Preencha todos os campos",
+  "EMP0003": "Cliente já possui um empréstimo pendente aguardando investidor",
+  "CAD015": "E-mail corporativo já cadastrado na base",
+  "CAD020": "E-mail pessoal já cadastrado na base"
+}

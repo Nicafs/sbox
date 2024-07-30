@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "baseUrl": "src",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": false,
+    "paths": {
+      "~/*": ["./*"],
+      "~/pages/*": ["./pages/*"],
+      "~/containers/*": ["./containers/*"],
+      "~/components/*": ["./components/*"],
+      "~/providers/*": ["./providers/*"],
+      "~/common/*": ["./common/*"],
+      "~/resources/*": ["./common/resources/*"]
+    }
+  },
+  "exclude": ["node_modules", "build", "dist"]
+}
